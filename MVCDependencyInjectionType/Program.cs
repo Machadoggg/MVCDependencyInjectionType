@@ -1,7 +1,13 @@
+using MVCDependencyInjectionType;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<ITrasient, MyObject>();
+builder.Services.AddScoped<IScoped, MyObject>();
+builder.Services.AddSingleton<ISingleton, MyObject>();
 
 var app = builder.Build();
 
