@@ -6,27 +6,27 @@ namespace MVCDependencyInjectionType.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ITrasient _trasient;
+        private readonly IScoped _scoped;
+        private readonly ISingleton _singleton;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ITrasient trasient, IScoped scoped, ISingleton singleton)
         {
-            _logger = logger;
+            _trasient = trasient;
+            _scoped = scoped;
+            _singleton = singleton;
         }
 
         public IActionResult Index()
         {
+            ViewBag.trasient = _trasient;
+            ViewBag.scoped = _scoped;
+            ViewBag.singleton = _singleton;
+
+
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        
     }
 }
