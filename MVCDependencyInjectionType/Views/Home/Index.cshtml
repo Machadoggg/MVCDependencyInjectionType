@@ -4,8 +4,20 @@
     var trasient = (MyObject)ViewBag.trasient;
     var scoped = (MyObject)ViewBag.scoped;
     var singleton = (MyObject)ViewBag.singleton;
+
+    var trasient2 = (MyObject)ViewBag.trasient2;
+    var scoped2 = (MyObject)ViewBag.scoped2;
+    var singleton2 = (MyObject)ViewBag.singleton2;
 }
 
 <div class="text-center">
-    
+    <b>Trasient 1</b> @trasient.Value
+    <b>Scoped 1</b> @scoped.Value
+    <b>Singleton 1</b> @singleton.Value
+</div>
+
+<div class="text-center">
+    <b>Trasient 2</b> @trasient2.Value
+    <b>Scoped 2</b> @scoped2.Value
+    <b>Singleton 2</b> @singleton2.Value
 </div>
